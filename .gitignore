@@ -1,0 +1,4 @@
+.DS_Store
+.claude/
+# never publish any PDF (CVs contain private contact details)
+*.pdf
