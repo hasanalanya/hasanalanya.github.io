@@ -1,12 +1,7 @@
 /* =====================================================================
    SITE CONTENT
-   ---------------------------------------------------------------------
-   Everything shown on the website lives in this file. To update your
-   site (new paper, new job, new skill) edit the lists below, save, and
-   push to GitHub. You do not need to touch the HTML or the other JS.
-
-   Privacy: no email address, phone number or CV file is published
-   anywhere on the site. Visitors reach you through LinkedIn and GitHub.
+   Everything shown on the website (roles, papers, skills, education)
+   lives in this file and is rendered by the page scripts.
    ===================================================================== */
 
 const SITE = {

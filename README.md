@@ -1,57 +1,38 @@
-# Hasan Alanya · personal website
+# Hasan Alanya
 
-An interactive portfolio site written in plain HTML, CSS and JavaScript. There's no build step and nothing to install, so it runs as-is on GitHub Pages.
+**Computational biologist · Marie Skłodowska-Curie Doctoral Fellow, University of Birmingham**
 
-Live at **https://hasanalanya.github.io**
+🌐 **[hasanalanya.github.io](https://hasanalanya.github.io)** · [LinkedIn](https://www.linkedin.com/in/hasanalanya/)
 
-## What's in the folder
+I build interpretable machine-learning and network models on multi-omics data to understand how we age and how tumours evolve, and to find existing drugs that could change the course of both.
 
-```
-index.html              homepage: the story, globe, capabilities, selected work
-research.html           research page: live figures, publications, toolkit
-css/style.css           all styling
-js/data.js              ALL the content: jobs, papers, skills, awards…
-js/globe.js             the interactive dotted globe and the places on it
-js/app.js               homepage behaviour (scroll story, work list, counters)
-js/research.js          research page figures (embedding, career locus, heatmap)
-assets/favicon.svg      browser-tab icon
-.nojekyll               tells GitHub Pages to serve files untouched
-```
+My PhD in the Genomics of Ageing & Rejuvenation Lab (Prof. João Pedro de Magalhães) uses graph and causal ML to predict which approved drugs could slow ageing and frailty. Before that, I spent almost four years at Yale School of Medicine working on brain-tumour genomics, trained in systems medicine at SciLifeLab and Karolinska Institutet, and started out in protein-interaction research at Koç University.
 
-**To update the site, you'll usually only edit `js/data.js`.** For example, to add a new paper, copy one of the entries in `PUBLICATIONS`, change the fields and save. The research page's figures, filters and lists pick it up automatically. Set `featured: true` (plus a one-line `summary`) to show a paper under "Selected work" on the homepage.
+## Research focus
 
-The story chapters (one per city) are written directly in `index.html`. The cities and coordinates on the globe are in `PLACES` at the top of `js/globe.js`.
+- **Ageing and drug repurposing:** linking compounds, genes and pathways to senescence-associated molecular states
+- **Cancer genomics:** multi-omic profiling of primary brain tumours, tumour evolution and rare subtypes
+- **Graph and causal ML:** network models and GNNs whose predictions lead to testable hypotheses
+- **Multi-omics integration:** genomic, transcriptomic, epigenetic, proteomic and single-cell data in reproducible pipelines
 
-### Earlier versions (on this Mac only)
+## Selected publications
 
-`v1/`, `v2/` and `v3/` hold the earlier designs. They are listed in `.gitignore`, so they are never uploaded. Preview them at http://localhost:8000/v1/, /v2/ and /v3/ while the local server is running.
+- Subgroup of meningiomas involving FOS and FOSB gene fusions. *Nature Communications* (2025)
+- Genomic characterization of a rare skull-base plasmacytoma. *Frontiers in Oncology* (2025)
+- Sporadic pituitary adenoma with somatic double-hit loss of MEN1. *Pituitary* (2023)
 
-## Privacy
+Six peer-reviewed papers so far. The full list is on the [research page](https://hasanalanya.github.io/research.html#publications).
 
-- No email address, phone number or CV is published on the site. Visitors reach you through LinkedIn and GitHub.
-- `.gitignore` blocks every `.pdf` file, so a CV kept in this folder can never be uploaded by accident.
-- Commits use your private GitHub address (`…@users.noreply.github.com`), not your real email.
+## Education
 
-## Preview it on your Mac
+- **PhD**, Ageing biology & machine learning, University of Birmingham (2025–2028)
+- **MSc**, Molecular Techniques in Life Science, Karolinska Institutet · KTH · Stockholm University (2019–2021)
+- **BSc**, Genetics and Bioengineering, Istanbul Bilgi University (2014–2019)
 
-```bash
-cd ~/Desktop/Personal_Website
-python3 -m http.server 8000
-```
+## Toolkit
 
-Then open http://localhost:8000. Press `Ctrl+C` in the terminal to stop it.
+Python · R · TensorFlow · scikit-learn · graph neural networks · Nextflow · Snakemake · Docker · Seurat · Scanpy · GATK · DESeq2 · Cytoscape
 
-## Publish changes
+---
 
-```bash
-cd ~/Desktop/Personal_Website
-git add .
-git commit -m "Describe the change"
-git push
-```
-
-GitHub Pages redeploys automatically about a minute after each push.
-
-### Optional: your own domain
-
-Buy a domain (e.g. `hasanalanya.com`) from any registrar. In the repo's **Settings → Pages → Custom domain**, enter it, then add the DNS records GitHub shows you at your registrar. Tick **Enforce HTTPS** once it's available.
+<sub>Built from scratch in plain HTML, CSS and JavaScript, with no template or framework. The globe and research figures are drawn in the browser from the site's own data.</sub>
