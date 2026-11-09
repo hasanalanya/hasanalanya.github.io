@@ -1,266 +1,306 @@
 <!doctype html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Hasan Alanya · Computational Biology & Machine Learning</title>
-  <meta name="description" content="Hasan Alanya, Marie Skłodowska-Curie Doctoral Fellow at the University of Birmingham. Interpretable machine learning and multi-omics for ageing biology, drug repurposing and cancer genomics." />
-  <meta property="og:title" content="Hasan Alanya · Computational Biology & ML" />
-  <meta property="og:description" content="Interpretable machine learning and multi-omics for ageing biology, drug repurposing and cancer genomics." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://hasanalanya.github.io/" />
-  <meta name="theme-color" content="#0c0807" />
+  <title>Hasan Alanya · Interpretable AI for the biology of ageing</title>
+  <meta name="description" content="Hasan Alanya, computational biologist and Marie Skłodowska-Curie Doctoral Fellow. Interpretable AI and multi-omics to find drugs that could slow ageing." />
+  <meta property="og:title" content="Hasan Alanya · Interpretable AI for the biology of ageing" />
+  <meta property="og:description" content="Ten years, four countries, one question: what drives ageing, and what can we do about it?" />
+  <meta name="theme-color" content="#f6f6f4" />
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
-  <script>
-    // apply saved theme before paint to avoid a flash
-    try { const t = localStorage.getItem("theme"); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
-  </script>
 </head>
 <body>
-  <div class="progress" id="progress"></div>
-  <div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
-
-  <!-- ===================== NAV ===================== -->
   <header class="nav" id="nav">
-    <a href="#home" class="nav__logo" aria-label="Home">
-      <span class="logo-mark">HA</span>
-    </a>
-    <nav class="nav__links" id="navLinks">
-      <a href="#about">About</a>
-      <a href="#experience">Experience</a>
-      <a href="#skills">Skills</a>
-      <a href="#publications">Publications</a>
-      <a href="#education">Education</a>
-      <a href="#contact">Contact</a>
+    <a class="nav__name" href="#top">Hasan Alanya</a>
+    <nav class="nav__links">
+      <a href="#journey">Journey</a>
+      <a href="#capabilities">Capabilities</a>
+      <a href="#work">Work</a>
+      <a href="#approach">Approach</a>
+      <a href="research.html">Research</a>
     </nav>
-    <div class="nav__actions">
-      <button class="icon-btn" id="themeToggle" aria-label="Toggle light and dark theme">
-        <svg class="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
-        <svg class="i-moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
-      </button>
-      <button class="icon-btn nav__burger" id="burger" aria-label="Open menu" aria-expanded="false">
-        <span></span><span></span>
-      </button>
-    </div>
+    <a class="nav__cta" href="#contact">Get in touch</a>
   </header>
 
-  <main>
-    <!-- ===================== HERO ===================== -->
-    <section class="hero" id="home">
-      <canvas id="networkCanvas" class="hero__network" aria-hidden="true"></canvas>
-      <div class="hero__inner container">
-        <div class="hero__text">
-          <p class="eyebrow reveal"><span class="pulse-dot"></span> MSCA Doctoral Fellow · University of Birmingham</p>
-          <h1 class="hero__name reveal">Hasan <span class="grad">Alanya</span></h1>
-          <p class="hero__role reveal mono">&gt; <span id="typed"></span><span class="caret">▍</span></p>
-          <p class="hero__tagline reveal" id="tagline"></p>
-          <div class="hero__cta reveal">
-            <a href="#publications" class="btn btn--primary">Explore my research</a>
-            <a href="#experience" class="btn btn--ghost">See my experience</a>
-            <span class="hero__social">
-              <a href="https://github.com/hasanalanya" target="_blank" rel="noopener" aria-label="GitHub">
-                <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-3.2 19.5c.5.1.7-.2.7-.5v-1.7c-2.8.6-3.4-1.3-3.4-1.3-.5-1.2-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.6 2.4 1.1 3 .9.1-.7.4-1.1.6-1.4-2.2-.3-4.6-1.1-4.6-5 0-1.1.4-2 1-2.7-.1-.3-.4-1.3.1-2.7 0 0 .8-.3 2.8 1a9.6 9.6 0 0 1 5 0c1.9-1.3 2.8-1 2.8-1 .5 1.4.2 2.4.1 2.7.6.7 1 1.6 1 2.7 0 3.9-2.3 4.7-4.6 5 .4.3.7.9.7 1.9V21c0 .3.2.6.7.5A10 10 0 0 0 12 2z" fill="currentColor" stroke="none"/></svg>
-              </a>
-              <a href="https://www.linkedin.com/in/hasanalanya/" target="_blank" rel="noopener" aria-label="LinkedIn">
-                <svg viewBox="0 0 24 24"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.1c.5-1 1.8-2 3.8-2 4 0 4.8 2.7 4.8 6.1V21h-4v-5.5c0-1.3 0-3-1.8-3s-2.1 1.4-2.1 2.9V21H9z" fill="currentColor" stroke="none"/></svg>
-              </a>
-            </span>
+  <main id="top">
+    <!-- ============ STORY: hero + chapters beside a sticky globe ============ -->
+    <div class="story" id="journey">
+      <div class="story__globe">
+        <div class="globe-wrap">
+          <canvas id="globe" aria-label="Interactive globe showing the cities Hasan has studied and worked in"></canvas>
+          <div class="hud hud--tl mono"><span id="hudChapter">Overview</span></div>
+          <div class="hud hud--tr mono" id="hudCoords"></div>
+          <div class="hud hud--bl mono legend">
+            <span><i class="lg-dot"></i>Studied &amp; worked</span>
+            <span><i class="lg-dia"></i>Presented</span>
+            <span class="hint">Drag to rotate</span>
           </div>
-          <dl class="highlights reveal" id="highlights"></dl>
-        </div>
-        <div class="hero__visual reveal" aria-hidden="true">
-          <canvas id="helixCanvas"></canvas>
-          <div class="helix-hint mono">drag to spin the helix</div>
         </div>
       </div>
-      <a href="#about" class="scroll-cue" aria-label="Scroll to About"><span></span></a>
-    </section>
 
-    <!-- ===================== ABOUT ===================== -->
-    <section class="section" id="about">
-      <div class="container">
-        <div class="section__head reveal">
-          <span class="section__num mono">01</span>
-          <h2>About</h2>
-        </div>
-        <div class="about-grid">
-          <div class="about__text reveal">
-            <p class="lead">
-              I'm a computational biologist and <strong>Marie Skłodowska-Curie Doctoral Fellow</strong> at the
-              University of Birmingham. I combine <strong>machine learning</strong>, <strong>network biology</strong>
-              and <strong>multi-omics</strong> data to ask which molecular programmes drive ageing and disease,
-              and which existing drugs might reverse them.
-            </p>
-            <p>
-              Before my PhD, I spent nearly four years in the Erson Lab at Yale School of Medicine's Department of
-              Neurosurgery, building genomic analyses of primary brain tumours with a focus on rare subtypes,
-              tumour evolution and tumour–immune interactions. That work led to papers in
-              <em>Nature Communications</em>, <em>Frontiers in Oncology</em>, <em>Neuro-Oncology Advances</em>
-              and <em>Pituitary</em>, and I continue to collaborate with the lab as a Research Affiliate.
-            </p>
-            <p>
-              My path runs from structural bioinformatics at Koç University, through systems medicine at
-              SciLifeLab in Stockholm, to clinical cancer genomics in the US and now ageing research in the UK.
-              Throughout, I aim for reproducible pipelines and models whose predictions a biologist can question
-              and test at the bench.
-            </p>
+      <div class="story__text">
+        <section class="hero" data-step="-1">
+          <p class="eyebrow"><span class="live"></span>Computational biologist · Marie Skłodowska-Curie Doctoral Fellow</p>
+          <h1 class="hero__title">Interpretable AI for the biology of <span class="accent">ageing.</span></h1>
+          <p class="hero__lead">I'm Hasan Alanya. I turn multi-omics data into mechanisms, and mechanisms into drug candidates.
+            Ten years, four countries, one question: <em>what drives ageing, and what can we do about it?</em></p>
+          <div class="hero__cta">
+            <a class="btn btn--dark" href="#ch1">Follow the journey <span aria-hidden="true">↓</span></a>
+            <a class="btn btn--line" href="https://www.linkedin.com/in/hasanalanya/" target="_blank" rel="noopener">Connect on LinkedIn</a>
           </div>
-          <div class="stats reveal" id="stats"></div>
-        </div>
+          <dl class="hero__facts">
+            <div><dt>Now</dt><dd>University of Birmingham</dd></div>
+            <div><dt>Previously</dt><dd>Yale School of Medicine</dd></div>
+            <div><dt>Focus</dt><dd>Ageing · drug repurposing</dd></div>
+          </dl>
+        </section>
 
-        <h3 class="subhead reveal">Research focus</h3>
-        <div class="interests" id="interests"></div>
+        <article class="chapter" id="ch1" data-step="0">
+          <p class="chapter__meta mono"><span class="chapter__no">01</span> Istanbul, Türkiye <span class="dot">·</span> 2014–2019</p>
+          <h2 class="chapter__title">Learning to read biology as data</h2>
+          <p>I trained in Genetics and Bioengineering at Istanbul Bilgi University on a national ÖSYM scholarship. Research at
+            Koç University's computational biology lab, predicting protein–protein interactions with the PRISM algorithm and
+            building a dataset of protein interfaces, showed me that biology could be read computationally.</p>
+          <p>My bachelor's thesis put that to work: machine learning on microarray data to sort gastric cancer into molecular
+            subtypes and find biomarkers for each.</p>
+          <ul class="milestones">
+            <li>BSc Genetics &amp; Bioengineering, Istanbul Bilgi University</li>
+            <li>Two-time Koç University Summer Research Program scholar</li>
+            <li>Thesis on gastric-cancer subtyping, awarded the highest grade</li>
+          </ul>
+        </article>
 
-        <h3 class="subhead reveal">Research journey</h3>
-        <div class="journey reveal" id="journey"></div>
+        <article class="chapter" id="ch2" data-step="1">
+          <p class="chapter__meta mono"><span class="chapter__no">02</span> Stockholm, Sweden <span class="dot">·</span> 2019–2021</p>
+          <h2 class="chapter__title">From single molecules to whole systems</h2>
+          <p>For my master's I moved to Stockholm, to a joint programme of Karolinska Institutet, KTH and Stockholm University.
+            In Prof. Adil Mardinoglu's systems medicine group at SciLifeLab I analysed proteomics, transcriptomics, metabolomics
+            and metagenomics data, and learned to choose the right statistics for each.</p>
+          <p>My thesis built gene co-expression networks of muscle tissue to uncover genes and pathways behind sarcopenia, the
+            age-related loss of muscle. It was my first step into the biology of ageing.</p>
+          <ul class="milestones">
+            <li>MSc Molecular Techniques in Life Science</li>
+            <li>Multi-omics statistics at SciLifeLab</li>
+            <li>Co-author of a drug-repositioning study for sarcopenia (under review)</li>
+          </ul>
+        </article>
+
+        <article class="chapter" id="ch3" data-step="2">
+          <p class="chapter__meta mono"><span class="chapter__no">03</span> New Haven, United States <span class="dot">·</span> 2022–2025</p>
+          <h2 class="chapter__title">Genomics at the bedside</h2>
+          <p>At Yale School of Medicine's Department of Neurosurgery I joined the Erson Lab, co-supervised by Prof. Murat Günel.
+            For nearly four years I integrated genomic, transcriptomic and epigenetic data from primary brain tumours, working
+            with clinical teams to understand rare subtypes, how tumours evolve and how they interact with the immune system.</p>
+          <p>The work contributed to six peer-reviewed papers, including a meningioma subgroup defined by FOS/FOSB gene
+            fusions in <em>Nature Communications</em>. I presented our pituitary-adenoma genomics at the Society for
+            Neuro-Oncology meeting in Houston.</p>
+          <ul class="milestones">
+            <li>6 peer-reviewed papers, 2 as first author</li>
+            <li><em>Nature Communications</em>, 2025</li>
+            <li>Mentored three summer research students</li>
+          </ul>
+        </article>
+
+        <article class="chapter" id="ch4" data-step="3">
+          <p class="chapter__meta mono"><span class="chapter__no">04</span> Birmingham, United Kingdom <span class="dot">·</span> 2025–now</p>
+          <h2 class="chapter__title">Targeting ageing itself</h2>
+          <p>Today I'm a Marie Skłodowska-Curie Doctoral Fellow at the University of Birmingham, in Prof. João Pedro de
+            Magalhães's Genomics of Ageing and Rejuvenation Lab. I build interpretable models (network methods, graph neural
+            networks and causal ML) that integrate multi-omics data to find what drives ageing.</p>
+          <p>Then I map drug–gene–pathway interactions onto those signatures to predict which existing drugs could slow ageing
+            and frailty. I continue to collaborate with Yale as a Research Affiliate.</p>
+          <ul class="milestones">
+            <li>Marie Skłodowska-Curie Doctoral Fellowship, Horizon Europe</li>
+            <li>Interpretable graph neural networks and causal ML</li>
+            <li>Research Affiliate, Yale School of Medicine</li>
+          </ul>
+        </article>
       </div>
-    </section>
+    </div>
 
-    <!-- ===================== EXPERIENCE ===================== -->
-    <section class="section" id="experience">
-      <div class="container">
-        <div class="section__head reveal">
-          <span class="section__num mono">02</span>
-          <h2>Experience</h2>
-          <p class="section__sub">Research positions across four countries. Select a role for details.</p>
+    <!-- ============ CAPABILITIES ============ -->
+    <section class="section" id="capabilities">
+      <div class="wrap">
+        <div class="head">
+          <p class="kicker mono">What I bring</p>
+          <h2 class="h2">Four capabilities, one pipeline from data to drug candidates.</h2>
         </div>
-        <div class="timeline" id="timeline"></div>
-      </div>
-    </section>
-
-    <!-- ===================== SKILLS ===================== -->
-    <section class="section" id="skills">
-      <div class="container">
-        <div class="section__head reveal">
-          <span class="section__num mono">03</span>
-          <h2>Skills network</h2>
-          <p class="section__sub">My toolkit drawn as a graph, the way I'd draw a gene network. Hover or tap a node to see its neighbours, drag nodes around, or filter by domain.</p>
-        </div>
-        <div class="skills-wrap reveal">
-          <div class="skill-filters" id="skillFilters"></div>
-          <div class="skills-graph" id="skillsGraph">
-            <svg id="skillsSvg" role="img" aria-label="Interactive network of skills grouped by domain"></svg>
-            <div class="graph-tip mono" id="graphTip"></div>
-          </div>
-          <div class="skill-list" id="skillList"></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===================== PUBLICATIONS ===================== -->
-    <section class="section" id="publications">
-      <div class="container">
-        <div class="section__head reveal">
-          <span class="section__num mono">04</span>
-          <h2>Publications</h2>
-          <p class="section__sub">Selected papers first, then the full record of articles, abstracts, talks and work in preparation.</p>
-        </div>
-        <div class="featured" id="featured"></div>
-        <div class="pub-controls reveal">
-          <div class="search">
-            <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
-            <input type="search" id="pubSearch" placeholder="Search titles, authors, venues…" aria-label="Search publications" />
-          </div>
-          <div class="chips" id="pubFilters" role="tablist"></div>
-          <label class="toggle">
-            <input type="checkbox" id="firstAuthor" />
-            <span class="toggle__track"><span class="toggle__thumb"></span></span>
-            First-author only
-          </label>
-        </div>
-        <div class="pub-chart reveal" id="pubChart" aria-label="Outputs per year"></div>
-        <ol class="pubs" id="pubList"></ol>
-        <p class="pub-empty" id="pubEmpty" hidden>Nothing matches that search.</p>
-      </div>
-    </section>
-
-    <!-- ===================== EDUCATION ===================== -->
-    <section class="section" id="education">
-      <div class="container">
-        <div class="section__head reveal">
-          <span class="section__num mono">05</span>
-          <h2>Education & recognition</h2>
-        </div>
-        <div class="edu" id="eduList"></div>
-
-        <div class="tri-grid">
-          <div class="panel reveal">
-            <h3 class="panel__title">Awards & honours</h3>
-            <ul class="mini-list" id="awards"></ul>
-          </div>
-          <div class="panel reveal">
-            <h3 class="panel__title">Mentoring</h3>
-            <ul class="mini-list" id="mentoring"></ul>
-            <h3 class="panel__title panel__title--spaced">Languages</h3>
-            <div id="languages"></div>
-          </div>
-          <div class="panel reveal">
-            <h3 class="panel__title">Workshops & training</h3>
-            <ul class="mini-list" id="training"></ul>
-          </div>
+        <div class="caps">
+          <article class="cap rv">
+            <span class="cap__no mono">01</span>
+            <h3>Multi-omics integration</h3>
+            <p>Genomic, transcriptomic, epigenetic, proteomic, metabolomic and single-cell data, combined into one coherent analysis.</p>
+            <p class="cap__proof mono">WES · bulk &amp; single-cell RNA-seq · proteomics · metabolomics</p>
+          </article>
+          <article class="cap rv">
+            <span class="cap__no mono">02</span>
+            <h3>Interpretable machine learning</h3>
+            <p>Graph neural networks, causal ML and network models that explain why a prediction was made, not just what it is.</p>
+            <p class="cap__proof mono">GNNs · causal inference · TensorFlow · scikit-learn</p>
+          </article>
+          <article class="cap rv">
+            <span class="cap__no mono">03</span>
+            <h3>Clinical translation</h3>
+            <p>Nearly four years turning tumour genomics into clinically relevant findings alongside neurosurgical teams at Yale.</p>
+            <p class="cap__proof mono">6 peer-reviewed papers · Nature Communications</p>
+          </article>
+          <article class="cap rv">
+            <span class="cap__no mono">04</span>
+            <h3>Reproducible engineering</h3>
+            <p>Analyses built as reproducible pipelines in Nextflow and Snakemake, containerised with Docker and Singularity.</p>
+            <p class="cap__proof mono">Python · R · SQL · Shell · Git</p>
+          </article>
         </div>
       </div>
     </section>
 
-    <!-- ===================== TERMINAL ===================== -->
-    <section class="section section--tight" id="shell">
-      <div class="container">
-        <div class="section__head reveal">
-          <span class="section__num mono">06</span>
-          <h2>Prefer a terminal?</h2>
-          <p class="section__sub">Explore this site from the command line. Type <code>help</code> to start.</p>
+    <!-- ============ TRACK RECORD ============ -->
+    <section class="section section--tight">
+      <div class="wrap">
+        <div class="numbers" id="numbers">
+          <div class="num rv"><span class="num__v" data-n="6">0</span><span class="num__l">peer-reviewed papers</span></div>
+          <div class="num rv"><span class="num__v" data-n="2">0</span><span class="num__l">as first author</span></div>
+          <div class="num rv"><span class="num__v" data-n="10" data-s="+">0</span><span class="num__l">years of research</span></div>
+          <div class="num rv"><span class="num__v" data-n="4">0</span><span class="num__l">countries</span></div>
+          <div class="num rv"><span class="num__v" data-n="3">0</span><span class="num__l">students mentored</span></div>
         </div>
-        <div class="terminal reveal" id="terminal">
-          <div class="terminal__bar">
-            <span></span><span></span><span></span>
-            <p class="mono">hasan@genomics:~</p>
-          </div>
-          <div class="terminal__body mono" id="termBody" tabindex="0">
-            <div id="termOut"></div>
-            <div class="term-line">
-              <span class="term-prompt">hasan@genomics:~$</span>
-              <input id="termInput" class="mono" autocomplete="off" spellcheck="false" aria-label="Terminal input" />
-            </div>
-          </div>
+        <div class="logos rv">
+          <p class="kicker mono">Trained and worked at</p>
+          <ul>
+            <li>University of Birmingham</li><li>Yale School of Medicine</li><li>SciLifeLab</li><li>Karolinska Institutet</li>
+            <li>KTH Royal Institute of Technology</li><li>Stockholm University</li><li>Koç University</li><li>Istanbul Bilgi University</li>
+          </ul>
         </div>
       </div>
     </section>
 
-    <!-- ===================== CONTACT ===================== -->
-    <section class="section" id="contact">
-      <div class="container">
-        <div class="contact reveal">
-          <span class="section__num mono">07</span>
-          <h2>Let's collaborate</h2>
-          <p>
-            I'm always glad to hear about collaborations in ageing biology, drug repurposing, cancer genomics
-            and machine learning for multi-omics data. The best way to reach me is a message on LinkedIn.
-          </p>
-          <div class="contact__actions">
-            <a class="btn btn--primary" href="https://www.linkedin.com/in/hasanalanya/" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.1c.5-1 1.8-2 3.8-2 4 0 4.8 2.7 4.8 6.1V21h-4v-5.5c0-1.3 0-3-1.8-3s-2.1 1.4-2.1 2.9V21H9z" fill="currentColor" stroke="none"/></svg>
-              Message me on LinkedIn
-            </a>
-            <a class="btn btn--ghost" href="https://github.com/hasanalanya" target="_blank" rel="noopener">GitHub</a>
+    <!-- ============ SELECTED WORK ============ -->
+    <section class="section" id="work">
+      <div class="wrap">
+        <div class="head head--row">
+          <div>
+            <p class="kicker mono">Selected work</p>
+            <h2 class="h2">Papers I'm proud of.</h2>
           </div>
+          <a class="btn btn--line btn--sm" href="research.html#publications">All publications <span aria-hidden="true">→</span></a>
+        </div>
+        <div class="works" id="works"></div>
+      </div>
+    </section>
+
+    <!-- ============ SCIENCE TEASER → research page ============ -->
+    <section class="section section--tight" id="science">
+      <div class="wrap">
+        <div class="head head--row">
+          <div>
+            <p class="kicker mono">Under the hood</p>
+            <h2 class="h2">See the science, not just the summary.</h2>
+          </div>
+          <a class="btn btn--dark btn--sm" href="research.html">Open the research page <span aria-hidden="true">→</span></a>
+        </div>
+        <div class="teasers">
+          <a class="teaser rv" href="research.html#embedding">
+            <svg class="teaser__art" viewBox="0 0 240 140" aria-hidden="true">
+              <g fill="#4DBBD5"><circle cx="58" cy="40" r="4"/><circle cx="70" cy="32" r="4"/><circle cx="66" cy="50" r="4"/><circle cx="80" cy="44" r="4"/><circle cx="52" cy="56" r="4"/><circle cx="76" cy="58" r="4"/></g>
+              <g fill="#3C5488"><circle cx="46" cy="96" r="4"/><circle cx="58" cy="104" r="4"/><circle cx="40" cy="110" r="4"/><rect x="60" y="88" width="8" height="8"/></g>
+              <g fill="#00A087"><circle cx="170" cy="36" r="4"/><circle cx="184" cy="44" r="4"/><circle cx="160" cy="48" r="4"/><circle cx="178" cy="28" r="4"/></g>
+              <g fill="#E64B35"><circle cx="120" cy="72" r="9" fill="#fff" stroke="#E64B35" stroke-width="2.5"/><circle cx="120" cy="72" r="3.2"/><circle cx="136" cy="60" r="4" fill="#fff" stroke="#E64B35" stroke-width="1.6"/><rect x="104" y="80" width="8" height="8"/></g>
+              <g fill="#8491B4"><circle cx="196" cy="92" r="4"/><circle cx="208" cy="102" r="4"/><circle cx="190" cy="108" r="4"/></g>
+              <g fill="#F39B7F"><circle cx="112" cy="116" r="4"/><circle cx="126" cy="124" r="4"/></g>
+            </svg>
+            <span class="teaser__no mono">01</span>
+            <h3>Career embedding</h3>
+            <p>Tools, papers and roles as a single-cell-style UMAP that converges as you watch.</p>
+          </a>
+          <a class="teaser rv" href="research.html#career-locus">
+            <svg class="teaser__art" viewBox="0 0 240 140" aria-hidden="true">
+              <rect x="14" y="16" width="212" height="8" rx="4" fill="none" stroke="#8b8f98"/>
+              <rect x="120" y="13" width="70" height="14" fill="none" stroke="#d62839" stroke-width="1.6"/>
+              <line x1="20" y1="54" x2="120" y2="54" stroke="#8b8f98"/><rect x="24" y="48" width="22" height="12" fill="#0e0f12"/><rect x="52" y="48" width="30" height="12" fill="#0e0f12"/><rect x="88" y="48" width="28" height="12" fill="#0e0f12"/>
+              <line x1="140" y1="74" x2="220" y2="74" stroke="#8b8f98"/><rect x="146" y="68" width="18" height="12" fill="#d62839"/><rect x="170" y="68" width="46" height="12" fill="#d62839"/>
+              <line x1="14" y1="126" x2="226" y2="126" stroke="#cfcfca"/>
+              <g stroke="#8b8f98"><line x1="60" y1="126" x2="60" y2="110"/><line x1="110" y1="126" x2="110" y2="102"/><line x1="150" y1="126" x2="150" y2="96"/><line x1="170" y1="126" x2="170" y2="96"/><line x1="196" y1="126" x2="196" y2="104"/></g>
+              <circle cx="60" cy="110" r="5" fill="#00A087"/><circle cx="110" cy="102" r="5" fill="#3C5488"/><circle cx="150" cy="96" r="7" fill="#E64B35"/><circle cx="170" cy="96" r="5" fill="#E64B35"/><circle cx="196" cy="104" r="5" fill="#3C5488"/>
+            </svg>
+            <span class="teaser__no mono">02</span>
+            <h3>Career locus</h3>
+            <p>A genome-browser view of ten years, with papers as a mutation lollipop plot. Drag to zoom.</p>
+          </a>
+          <a class="teaser rv" href="research.html#competencies">
+            <svg class="teaser__art" viewBox="0 0 240 140" aria-hidden="true">
+              <path d="M10 22 H22 V40 H34 M22 31 H34 M10 22 V76 H28 V58 H34 M28 76 V94 H34 M10 76 V112 H34 M22 112 V130 H34 M22 112" fill="none" stroke="#8b8f98"/>
+              <rect x="40" y="16" width="34" height="16" fill="#d62839"/><rect x="76" y="16" width="34" height="16" fill="#f0f0ee"/><rect x="112" y="16" width="34" height="16" fill="#f3c9ce"/><rect x="148" y="16" width="34" height="16" fill="#f0f0ee"/><rect x="184" y="16" width="34" height="16" fill="#f3c9ce"/>
+              <rect x="40" y="34" width="34" height="16" fill="#d62839"/><rect x="76" y="34" width="34" height="16" fill="#f0f0ee"/><rect x="112" y="34" width="34" height="16" fill="#f0f0ee"/><rect x="148" y="34" width="34" height="16" fill="#f0f0ee"/><rect x="184" y="34" width="34" height="16" fill="#f0f0ee"/>
+              <rect x="40" y="52" width="34" height="16" fill="#f0f0ee"/><rect x="76" y="52" width="34" height="16" fill="#d62839"/><rect x="112" y="52" width="34" height="16" fill="#f3c9ce"/><rect x="148" y="52" width="34" height="16" fill="#f3c9ce"/><rect x="184" y="52" width="34" height="16" fill="#d62839"/>
+              <rect x="40" y="70" width="34" height="16" fill="#d62839"/><rect x="76" y="70" width="34" height="16" fill="#e48a95"/><rect x="112" y="70" width="34" height="16" fill="#e48a95"/><rect x="148" y="70" width="34" height="16" fill="#d62839"/><rect x="184" y="70" width="34" height="16" fill="#d62839"/>
+              <rect x="40" y="88" width="34" height="16" fill="#f0f0ee"/><rect x="76" y="88" width="34" height="16" fill="#f0f0ee"/><rect x="112" y="88" width="34" height="16" fill="#f0f0ee"/><rect x="148" y="88" width="34" height="16" fill="#d62839"/><rect x="184" y="88" width="34" height="16" fill="#f3c9ce"/>
+              <rect x="40" y="106" width="34" height="16" fill="#f0f0ee"/><rect x="76" y="106" width="34" height="16" fill="#f0f0ee"/><rect x="112" y="106" width="34" height="16" fill="#e48a95"/><rect x="148" y="106" width="34" height="16" fill="#d62839"/><rect x="184" y="106" width="34" height="16" fill="#d62839"/>
+              <rect x="40" y="124" width="34" height="12" fill="#f0f0ee"/><rect x="76" y="124" width="34" height="12" fill="#f0f0ee"/><rect x="112" y="124" width="34" height="12" fill="#d62839"/><rect x="148" y="124" width="34" height="12" fill="#f0f0ee"/><rect x="184" y="124" width="34" height="12" fill="#d62839"/>
+            </svg>
+            <span class="teaser__no mono">03</span>
+            <h3>Which skills, where</h3>
+            <p>A clustered heatmap of sixteen competencies across five research groups, with a live dendrogram.</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ APPROACH (dark) ============ -->
+    <section class="section dark" id="approach">
+      <div class="wrap">
+        <p class="kicker mono">The approach</p>
+        <p class="statement">No approved drug targets ageing itself. Some existing drugs may already slow it.
+          <span class="statement__em">Interpretable AI can tell us which ones to test first, and why.</span></p>
+        <ol class="steps">
+          <li class="step rv">
+            <span class="step__no mono">01</span>
+            <h3>Signatures</h3>
+            <p>Integrate genomic, transcriptomic, epigenetic and proteomic data to find the molecular signatures that drive ageing.</p>
+          </li>
+          <li class="step rv">
+            <span class="step__no mono">02</span>
+            <h3>Networks</h3>
+            <p>Map drug–gene–pathway interactions onto those signatures, building a network of where each compound acts.</p>
+          </li>
+          <li class="step rv">
+            <span class="step__no mono">03</span>
+            <h3>Candidates</h3>
+            <p>Rank existing drugs with graph neural networks and causal ML, with the mechanism attached to every prediction.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section class="section contact" id="contact">
+      <div class="wrap">
+        <p class="kicker mono">Contact</p>
+        <h2 class="contact__title">Let's build what comes next.</h2>
+        <p class="contact__lead">I'm keen to talk with researchers, clinicians and teams working on AI-driven drug discovery and
+          longevity science. The quickest way to reach me is LinkedIn.</p>
+        <div class="contact__cta">
+          <a class="btn btn--accent" href="https://www.linkedin.com/in/hasanalanya/" target="_blank" rel="noopener">Message me on LinkedIn <span aria-hidden="true">↗</span></a>
+          <a class="btn btn--line" href="https://github.com/hasanalanya" target="_blank" rel="noopener">GitHub <span aria-hidden="true">↗</span></a>
         </div>
       </div>
     </section>
   </main>
 
-  <footer class="footer">
-    <div class="container footer__inner">
-      <p>© <span id="year"></span> Hasan Alanya · Birmingham, UK</p>
-      <a href="#home" class="mono">back to top ↑</a>
-    </div>
+  <footer class="foot wrap">
+    <span>© <span id="yr"></span> Hasan Alanya · Birmingham, UK</span>
+    <span class="mono foot__v"><a href="research.html">Research</a> · <a href="https://www.linkedin.com/in/hasanalanya/" target="_blank" rel="noopener">LinkedIn</a></span>
   </footer>
 
+  <script src="https://cdn.jsdelivr.net/npm/d3-array@3.2.4/dist/d3-array.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/d3-geo@3.1.1/dist/d3-geo.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/topojson-client@3.1.0/dist/topojson-client.min.js"></script>
   <script src="js/data.js"></script>
-  <script src="js/visuals.js"></script>
-  <script src="js/main.js"></script>
+  <script src="js/globe.js"></script>
+  <script src="js/app.js"></script>
 </body>
 </html>

@@ -2,3 +2,7 @@
 .claude/
 # never publish any PDF (CVs contain private contact details)
 *.pdf
+# earlier versions of the site - kept on this Mac only, never published
+v1/
+v2/
+v3/

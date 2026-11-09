@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Research · Hasan Alanya</title>
+  <meta name="description" content="The science behind the story: live figures, publications and toolkit of Hasan Alanya, computational biologist." />
+  <meta name="theme-color" content="#f6f6f4" />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="page-research">
+  <header class="nav" id="nav">
+    <a class="nav__name" href="index.html">Hasan Alanya</a>
+    <nav class="nav__links">
+      <a href="index.html#journey">Journey</a>
+      <a href="index.html#capabilities">Capabilities</a>
+      <a href="index.html#work">Work</a>
+      <a href="index.html#approach">Approach</a>
+      <a href="research.html" class="is-active" aria-current="page">Research</a>
+    </nav>
+    <a class="nav__cta" href="index.html#contact">Get in touch</a>
+  </header>
+
+  <main>
+    <!-- ============ HEADER ============ -->
+    <section class="rhero wrap">
+      <p class="kicker mono">Research</p>
+      <h1 class="rhero__title">The science behind the story.</h1>
+      <p class="rhero__lead">Three live figures drawn from my record, the full list of publications, and the toolkit behind
+        them. Each figure uses a visual from my own field, and each one can be explored.</p>
+      <nav class="rindex mono" id="rIndex">
+        <a href="#embedding"><span>01</span>Career embedding</a>
+        <a href="#career-locus"><span>02</span>Career locus</a>
+        <a href="#competencies"><span>03</span>Competencies</a>
+        <a href="#publications"><span>04</span>Publications</a>
+        <a href="#toolkit"><span>05</span>Toolkit &amp; education</a>
+      </nav>
+    </section>
+
+    <!-- ============ FIGURE 1 ============ -->
+    <section class="rsec wrap" id="embedding">
+      <div class="rsec__head rv">
+        <span class="rsec__no mono">01</span>
+        <div>
+          <h2 class="h2">A research career, embedded.</h2>
+          <p>Every tool, paper, position and research topic from my work, drawn as a single-cell-style UMAP and coloured by
+            research area. Rings are positions held, squares are papers.</p>
+        </div>
+      </div>
+      <figure class="fig rv">
+        <div class="fig__frame">
+          <div class="fig__bar">
+            <div class="legend" id="umapLegend"></div>
+            <button class="tool-btn mono" id="rerun" title="Re-run the embedding">↻ Re-run</button>
+          </div>
+          <div class="umap" id="umapWrap">
+            <canvas id="umap" aria-label="Embedding of tools, papers and roles coloured by research area"></canvas>
+            <div class="umap__epoch mono" id="epoch"></div>
+            <div class="tip mono" id="umapTip"></div>
+          </div>
+        </div>
+        <figcaption>Hover to inspect a point, pick an area in the legend to isolate it, or re-run to watch the layout converge.
+          Positions are illustrative, not the output of a real UMAP run.</figcaption>
+      </figure>
+    </section>
+
+    <!-- ============ FIGURE 2 ============ -->
+    <section class="rsec wrap" id="career-locus">
+      <div class="rsec__head rv">
+        <span class="rsec__no mono">02</span>
+        <div>
+          <h2 class="h2">A decade on one locus.</h2>
+          <p>My career laid out like a genome browser: positions as gene models, years as exons, and outputs as a lollipop plot,
+            the chart cancer genomicists use for mutations. Drag across the ruler to zoom, as in IGV.</p>
+        </div>
+      </div>
+      <figure class="fig rv">
+        <div class="fig__frame">
+          <div class="fig__bar">
+            <span class="locus mono" id="locus">chrHA:2014–2027</span>
+            <button class="tool-btn mono" id="resetZoom">Reset view</button>
+          </div>
+          <div class="browser" id="browserWrap"><svg id="browser"></svg><div class="tip mono" id="browserTip"></div></div>
+          <div class="detail" id="detail"></div>
+        </div>
+        <figcaption>Select a gene for the role details below the plot, or a lollipop to open the paper. Larger heads are first-author
+          outputs. Double-click the ruler to reset.</figcaption>
+      </figure>
+    </section>
+
+    <!-- ============ FIGURE 3 ============ -->
+    <section class="rsec wrap" id="competencies">
+      <div class="rsec__head rv">
+        <span class="rsec__no mono">03</span>
+        <div>
+          <h2 class="h2">Which skills, where.</h2>
+          <p>Sixteen core competencies against the five research groups I have worked in, scored from 0 (not used) to 3 (core to
+            the work). The page clusters the rows as it loads (average linkage, Euclidean distance), so related skills sit together.</p>
+        </div>
+      </div>
+      <figure class="fig rv">
+        <div class="fig__frame">
+          <div class="fig__bar"><div class="scale mono" id="heatScale"></div></div>
+          <div class="heat" id="heatWrap"><svg id="heat"></svg><div class="tip mono" id="heatTip"></div></div>
+        </div>
+        <figcaption>Hover a cell to see the pairing. Scores are my own assessment of how central each competency was to the work in that position.</figcaption>
+      </figure>
+    </section>
+
+    <!-- ============ PUBLICATIONS ============ -->
+    <section class="rsec wrap" id="publications">
+      <div class="rsec__head rv">
+        <span class="rsec__no mono">04</span>
+        <div>
+          <h2 class="h2">Publications.</h2>
+          <p>Peer-reviewed articles, conference abstracts, talks and manuscripts in preparation.</p>
+        </div>
+      </div>
+      <div class="reftools">
+        <div class="tabs" id="refTabs" role="tablist"></div>
+        <label class="check"><input type="checkbox" id="firstOnly" /> <span>First-author only</span></label>
+      </div>
+      <ol class="refs" id="refs"></ol>
+    </section>
+
+    <!-- ============ TOOLKIT & EDUCATION ============ -->
+    <section class="rsec wrap" id="toolkit">
+      <div class="rsec__head rv">
+        <span class="rsec__no mono">05</span>
+        <div>
+          <h2 class="h2">Toolkit &amp; education.</h2>
+          <p>The methods I use day to day, and where I trained.</p>
+        </div>
+      </div>
+      <div class="toolkit">
+        <div class="methods" id="methodsBody"></div>
+        <aside class="toolkit__side">
+          <h3 class="side-h mono">Awards &amp; recognition</h3>
+          <ul class="supp" id="supp"></ul>
+          <h3 class="side-h mono">Languages</h3>
+          <p class="side-p">Turkish (native) · English (fluent) · Swedish and Spanish (beginner)</p>
+        </aside>
+      </div>
+      <table class="tbl">
+        <thead><tr><th>Degree</th><th>Field</th><th>Institution</th><th class="r">Years</th></tr></thead>
+        <tbody id="eduRows"></tbody>
+      </table>
+    </section>
+
+    <!-- ============ CTA ============ -->
+    <section class="section contact">
+      <div class="wrap">
+        <p class="kicker mono">Next</p>
+        <h2 class="contact__title">Let's build what comes next.</h2>
+        <div class="contact__cta">
+          <a class="btn btn--accent" href="https://www.linkedin.com/in/hasanalanya/" target="_blank" rel="noopener">Message me on LinkedIn <span aria-hidden="true">↗</span></a>
+          <a class="btn btn--line" href="index.html">Back to the journey</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot wrap">
+    <span>© <span id="yr"></span> Hasan Alanya · Birmingham, UK</span>
+    <span class="mono foot__v">Figure colours: NPG palette</span>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/research.js"></script>
+</body>
+</html>
