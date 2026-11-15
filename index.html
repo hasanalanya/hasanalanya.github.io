@@ -4,152 +4,243 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Hasan Alanya · Interpretable AI for the biology of ageing</title>
-  <meta name="description" content="Hasan Alanya, computational biologist and Marie Skłodowska-Curie Doctoral Fellow. Interpretable AI and multi-omics to find drugs that could slow ageing." />
-  <meta property="og:title" content="Hasan Alanya · Interpretable AI for the biology of ageing" />
-  <meta property="og:description" content="Ten years, four countries, one question: what drives ageing, and what can we do about it?" />
-  <meta name="theme-color" content="#f6f6f4" />
+  <meta name="description" content="Hasan Alanya is a computational biologist and Marie Skłodowska-Curie Doctoral Fellow at the University of Birmingham, building interpretable AI to find drugs that slow ageing." />
+  <meta name="theme-color" content="#07080b" />
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
+  <script type="importmap">{ "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.160.1/build/three.module.min.js" } }</script>
 </head>
 <body>
+  <div class="progress" id="progress" aria-hidden="true"></div>
+
   <header class="nav" id="nav">
     <a class="nav__name" href="#top">Hasan Alanya</a>
-    <nav class="nav__links">
+    <nav class="nav__links" aria-label="Sections">
       <a href="#journey">Journey</a>
-      <a href="#capabilities">Capabilities</a>
-      <a href="#work">Work</a>
-      <a href="#approach">Approach</a>
-      <a href="research.html">Research</a>
+      <a href="#fellowship">Fellowship</a>
+      <a href="#skills">Skills</a>
+      <a href="#publications">Publications</a>
+      <a href="#experience">Experience</a>
+      <a href="research.html">Figures</a>
     </nav>
     <a class="nav__cta" href="#contact">Get in touch</a>
   </header>
 
-  <main id="top">
-    <!-- ============ STORY: hero + chapters beside a sticky globe ============ -->
-    <div class="story" id="journey">
-      <div class="story__globe">
-        <div class="globe-wrap">
-          <canvas id="globe" aria-label="Interactive globe showing the cities Hasan has studied and worked in"></canvas>
-          <div class="hud hud--tl mono"><span id="hudChapter">Overview</span></div>
-          <div class="hud hud--tr mono" id="hudCoords"></div>
-          <div class="hud hud--bl mono legend">
-            <span><i class="lg-dot"></i>Studied &amp; worked</span>
-            <span><i class="lg-dia"></i>Presented</span>
-            <span class="hint">Drag to rotate</span>
-          </div>
-        </div>
+  <main>
+    <!-- ============ STAGE: hero + journey over a sticky 3D globe ============ -->
+    <div class="stage" id="top">
+      <div class="stage__view" id="stageView">
+        <canvas id="globe" aria-label="Interactive 3D globe showing the cities Hasan has studied and worked in"></canvas>
+        <div class="glabels" id="globeLabels" aria-hidden="true"></div>
+        <div class="stage__shade" aria-hidden="true"></div>
+        <div class="hud hud--coords mono" id="hudCoords" aria-hidden="true"></div>
+        <div class="hud hud--hint mono" aria-hidden="true"><span class="hud__key">Drag</span> to rotate the globe</div>
+        <nav class="rail mono" id="rail" aria-label="Journey">
+          <button data-go="top" class="is-on"><i></i><span>Overview</span></button>
+          <button data-go="ch1"><i></i><span>Istanbul</span><em>2014</em></button>
+          <button data-go="ch2"><i></i><span>Stockholm</span><em>2019</em></button>
+          <button data-go="ch3"><i></i><span>New Haven</span><em>2022</em></button>
+          <button data-go="ch4"><i></i><span>Birmingham</span><em>2025</em></button>
+        </nav>
       </div>
 
-      <div class="story__text">
+      <div class="stage__flow">
         <section class="hero" data-step="-1">
-          <p class="eyebrow"><span class="live"></span>Computational biologist · Marie Skłodowska-Curie Doctoral Fellow</p>
-          <h1 class="hero__title">Interpretable AI for the biology of <span class="accent">ageing.</span></h1>
-          <p class="hero__lead">I'm Hasan Alanya. I turn multi-omics data into mechanisms, and mechanisms into drug candidates.
-            Ten years, four countries, one question: <em>what drives ageing, and what can we do about it?</em></p>
-          <div class="hero__cta">
-            <a class="btn btn--dark" href="#ch1">Follow the journey <span aria-hidden="true">↓</span></a>
-            <a class="btn btn--line" href="https://www.linkedin.com/in/hasanalanya/" target="_blank" rel="noopener">Connect on LinkedIn</a>
+          <div class="hero__inner">
+            <p class="eyebrow"><span class="live"></span>Marie Skłodowska-Curie Doctoral Fellow · University of Birmingham</p>
+            <h1 class="hero__title">Interpretable AI for the biology of <em>ageing.</em></h1>
+            <p class="hero__lead">I'm Hasan Alanya, a computational biologist. I turn multi-omics data into mechanisms, and
+              mechanisms into drug candidates. Ten years, four countries, one question:
+              <strong>what drives ageing, and what can we do about it?</strong></p>
+            <div class="hero__cta">
+              <a class="btn btn--accent" href="#ch1">Follow the journey <span aria-hidden="true">↓</span></a>
+              <a class="btn btn--ghost" href="https://www.linkedin.com/in/hasanalanya/" target="_blank" rel="noopener">Connect on LinkedIn <span aria-hidden="true">↗</span></a>
+            </div>
+            <dl class="hero__facts">
+              <div><dt>Now</dt><dd>University of Birmingham</dd></div>
+              <div><dt>Previously</dt><dd>Yale School of Medicine</dd></div>
+              <div><dt>Published in</dt><dd>Nature Communications</dd></div>
+            </dl>
           </div>
-          <dl class="hero__facts">
-            <div><dt>Now</dt><dd>University of Birmingham</dd></div>
-            <div><dt>Previously</dt><dd>Yale School of Medicine</dd></div>
-            <div><dt>Focus</dt><dd>Ageing · drug repurposing</dd></div>
-          </dl>
         </section>
 
-        <article class="chapter" id="ch1" data-step="0">
-          <p class="chapter__meta mono"><span class="chapter__no">01</span> Istanbul, Türkiye <span class="dot">·</span> 2014–2019</p>
-          <h2 class="chapter__title">Learning to read biology as data</h2>
-          <p>I trained in Genetics and Bioengineering at Istanbul Bilgi University on a national ÖSYM scholarship. Research at
-            Koç University's computational biology lab, predicting protein–protein interactions with the PRISM algorithm and
-            building a dataset of protein interfaces, showed me that biology could be read computationally.</p>
-          <p>My bachelor's thesis put that to work: machine learning on microarray data to sort gastric cancer into molecular
-            subtypes and find biomarkers for each.</p>
-          <ul class="milestones">
-            <li>BSc Genetics &amp; Bioengineering, Istanbul Bilgi University</li>
-            <li>Two-time Koç University Summer Research Program scholar</li>
-            <li>Thesis on gastric-cancer subtyping, awarded the highest grade</li>
-          </ul>
-        </article>
+        <div id="journey">
+          <article class="chapter" id="ch1" data-step="0">
+            <div class="card">
+              <p class="card__meta mono"><span class="card__no">01 / 04</span><span>2014 — 2019</span></p>
+              <p class="card__place">Istanbul <span>Türkiye</span></p>
+              <h2 class="card__title">Learning to read biology as data</h2>
+              <p>I trained in Genetics and Bioengineering at Istanbul Bilgi University on a national ÖSYM scholarship. At
+                Koç University's computational biology lab I predicted protein–protein interactions with the PRISM algorithm
+                and built a dataset of protein interfaces.</p>
+              <p>My bachelor's thesis used machine learning on microarray data to sort gastric cancer into molecular subtypes
+                and find biomarkers for each.</p>
+              <ul class="chips">
+                <li class="chip chip--deg">BSc · Genetics &amp; Bioengineering</li>
+                <li class="chip">Two-time Koç summer research scholar</li>
+                <li class="chip">Thesis awarded the highest grade</li>
+              </ul>
+            </div>
+          </article>
 
-        <article class="chapter" id="ch2" data-step="1">
-          <p class="chapter__meta mono"><span class="chapter__no">02</span> Stockholm, Sweden <span class="dot">·</span> 2019–2021</p>
-          <h2 class="chapter__title">From single molecules to whole systems</h2>
-          <p>For my master's I moved to Stockholm, to a joint programme of Karolinska Institutet, KTH and Stockholm University.
-            In Prof. Adil Mardinoglu's systems medicine group at SciLifeLab I analysed proteomics, transcriptomics, metabolomics
-            and metagenomics data, and learned to choose the right statistics for each.</p>
-          <p>My thesis built gene co-expression networks of muscle tissue to uncover genes and pathways behind sarcopenia, the
-            age-related loss of muscle. It was my first step into the biology of ageing.</p>
-          <ul class="milestones">
-            <li>MSc Molecular Techniques in Life Science</li>
-            <li>Multi-omics statistics at SciLifeLab</li>
-            <li>Co-author of a drug-repositioning study for sarcopenia (under review)</li>
-          </ul>
-        </article>
+          <article class="chapter" id="ch2" data-step="1">
+            <div class="card">
+              <p class="card__meta mono"><span class="card__no">02 / 04</span><span>2019 — 2021</span></p>
+              <p class="card__place">Stockholm <span>Sweden</span></p>
+              <h2 class="card__title">From single molecules to whole systems</h2>
+              <p>For my master's I moved to Stockholm, to a joint programme of Karolinska Institutet, KTH and Stockholm
+                University. In Prof. Adil Mardinoglu's systems medicine group at SciLifeLab I analysed proteomics,
+                transcriptomics, metabolomics and metagenomics data.</p>
+              <p>My thesis built gene co-expression networks of muscle tissue to uncover the genes and pathways behind
+                sarcopenia, the age-related loss of muscle. It was my first step into the biology of ageing.</p>
+              <ul class="chips">
+                <li class="chip chip--deg">MSc · Molecular Techniques in Life Science</li>
+                <li class="chip">Multi-omics statistics at SciLifeLab</li>
+                <li class="chip">Sarcopenia drug-repositioning study (under review)</li>
+              </ul>
+            </div>
+          </article>
 
-        <article class="chapter" id="ch3" data-step="2">
-          <p class="chapter__meta mono"><span class="chapter__no">03</span> New Haven, United States <span class="dot">·</span> 2022–2025</p>
-          <h2 class="chapter__title">Genomics at the bedside</h2>
-          <p>At Yale School of Medicine's Department of Neurosurgery I joined the Erson Lab, co-supervised by Prof. Murat Günel.
-            For nearly four years I integrated genomic, transcriptomic and epigenetic data from primary brain tumours, working
-            with clinical teams to understand rare subtypes, how tumours evolve and how they interact with the immune system.</p>
-          <p>The work contributed to six peer-reviewed papers, including a meningioma subgroup defined by FOS/FOSB gene
-            fusions in <em>Nature Communications</em>. I presented our pituitary-adenoma genomics at the Society for
-            Neuro-Oncology meeting in Houston.</p>
-          <ul class="milestones">
-            <li>6 peer-reviewed papers, 2 as first author</li>
-            <li><em>Nature Communications</em>, 2025</li>
-            <li>Mentored three summer research students</li>
-          </ul>
-        </article>
+          <article class="chapter" id="ch3" data-step="2">
+            <div class="card">
+              <p class="card__meta mono"><span class="card__no">03 / 04</span><span>2022 — 2025</span></p>
+              <p class="card__place">New Haven <span>United States</span></p>
+              <h2 class="card__title">Genomics at the bedside</h2>
+              <p>At Yale School of Medicine's Department of Neurosurgery I joined the Erson Lab, co-supervised by Prof. Murat
+                Günel. For nearly four years I integrated genomic, transcriptomic and epigenetic data from primary brain
+                tumours, working with clinical teams on rare subtypes and tumour evolution.</p>
+              <p>The work contributed to six peer-reviewed papers, including a meningioma subgroup defined by FOS/FOSB gene
+                fusions in <em>Nature Communications</em>. I presented our pituitary-adenoma genomics at the Society for
+                Neuro-Oncology meeting in Houston.</p>
+              <ul class="chips">
+                <li class="chip chip--deg">Postgraduate Research Associate · Yale</li>
+                <li class="chip">6 papers, 2 as first author</li>
+                <li class="chip">Mentored three research students</li>
+              </ul>
+            </div>
+          </article>
 
-        <article class="chapter" id="ch4" data-step="3">
-          <p class="chapter__meta mono"><span class="chapter__no">04</span> Birmingham, United Kingdom <span class="dot">·</span> 2025–now</p>
-          <h2 class="chapter__title">Targeting ageing itself</h2>
-          <p>Today I'm a Marie Skłodowska-Curie Doctoral Fellow at the University of Birmingham, in Prof. João Pedro de
-            Magalhães's Genomics of Ageing and Rejuvenation Lab. I build interpretable models (network methods, graph neural
-            networks and causal ML) that integrate multi-omics data to find what drives ageing.</p>
-          <p>Then I map drug–gene–pathway interactions onto those signatures to predict which existing drugs could slow ageing
-            and frailty. I continue to collaborate with Yale as a Research Affiliate.</p>
-          <ul class="milestones">
-            <li>Marie Skłodowska-Curie Doctoral Fellowship, Horizon Europe</li>
-            <li>Interpretable graph neural networks and causal ML</li>
-            <li>Research Affiliate, Yale School of Medicine</li>
-          </ul>
-        </article>
+          <article class="chapter" id="ch4" data-step="3">
+            <div class="card">
+              <p class="card__meta mono"><span class="card__no">04 / 04</span><span>2025 — now</span></p>
+              <p class="card__place">Birmingham <span>United Kingdom</span></p>
+              <h2 class="card__title">Targeting ageing itself</h2>
+              <p>Today I'm a Marie Skłodowska-Curie Doctoral Fellow at the University of Birmingham, in Prof. João Pedro de
+                Magalhães's Genomics of Ageing and Rejuvenation Lab. I build interpretable models (network methods, graph
+                neural networks and causal ML) that integrate multi-omics data to find what drives ageing.</p>
+              <p>Then I map drug–gene–pathway interactions onto those signatures to predict which existing drugs could slow
+                ageing and frailty. I still collaborate with Yale as a Research Affiliate.</p>
+              <ul class="chips">
+                <li class="chip chip--deg">PhD · MSCA Doctoral Fellow</li>
+                <li class="chip">Graph neural networks &amp; causal ML</li>
+                <li class="chip">Research Affiliate, Yale</li>
+              </ul>
+            </div>
+          </article>
+        </div>
       </div>
     </div>
 
-    <!-- ============ CAPABILITIES ============ -->
-    <section class="section" id="capabilities">
+    <!-- ============ NUMBERS + INSTITUTIONS ============ -->
+    <section class="band">
+      <div class="wrap numbers">
+        <div class="num rv"><span class="num__v" data-n="10" data-s="+">0</span><span class="num__l">years of research</span></div>
+        <div class="num rv"><span class="num__v" data-n="4">0</span><span class="num__l">countries lived and worked in</span></div>
+        <div class="num rv"><span class="num__v" data-n="6">0</span><span class="num__l">peer-reviewed papers</span></div>
+        <div class="num rv"><span class="num__v" data-n="2">0</span><span class="num__l">as first author</span></div>
+        <div class="num rv"><span class="num__v" data-n="3">0</span><span class="num__l">students mentored</span></div>
+      </div>
+      <div class="marquee" aria-label="Institutions I have trained and worked at">
+        <div class="marquee__track" id="marquee"></div>
+      </div>
+    </section>
+
+    <!-- ============ FELLOWSHIP ============ -->
+    <section class="section" id="fellowship">
+      <div class="wrap fellow">
+        <div class="fellow__text">
+          <p class="kicker mono">Fellowship</p>
+          <h2 class="h2">Funded by the EU's flagship programme for <em>doctoral research.</em></h2>
+          <p class="lead">My PhD is supported by a Marie Skłodowska-Curie Doctoral Fellowship under Horizon Europe. It funds
+            three years of research at the University of Birmingham's Institute of Inflammation and Ageing.</p>
+          <p class="statement">No approved drug targets ageing itself. Some existing drugs may already slow it.
+            <span>Interpretable AI can tell us which ones to test first, and why.</span></p>
+          <ol class="steps">
+            <li class="step rv"><span class="step__no mono">01</span><h3>Signatures</h3>
+              <p>Integrate genomic, transcriptomic, epigenetic and proteomic data to find the molecular signatures that drive ageing.</p></li>
+            <li class="step rv"><span class="step__no mono">02</span><h3>Networks</h3>
+              <p>Map drug–gene–pathway interactions onto those signatures to see where each compound acts.</p></li>
+            <li class="step rv"><span class="step__no mono">03</span><h3>Candidates</h3>
+              <p>Rank existing drugs with graph neural networks and causal ML, with the mechanism attached to every prediction.</p></li>
+          </ol>
+        </div>
+
+        <div class="fellow__card">
+          <div class="pass tilt" data-tilt="10">
+            <div class="pass__sheen" aria-hidden="true"></div>
+            <svg class="pass__net" viewBox="0 0 320 200" aria-hidden="true" id="passNet"></svg>
+            <p class="pass__top mono"><span>Doctoral Fellowship</span><span>2025 — 2028</span></p>
+            <p class="pass__title">Marie Skłodowska-Curie Actions</p>
+            <p class="pass__sub">Horizon Europe</p>
+            <dl class="pass__rows">
+              <div><dt>Fellow</dt><dd>Hasan Alanya</dd></div>
+              <div><dt>Host</dt><dd>University of Birmingham</dd></div>
+              <div><dt>Lab</dt><dd>Genomics of Ageing &amp; Rejuvenation</dd></div>
+              <div><dt>Supervisor</dt><dd>Prof. João Pedro de Magalhães</dd></div>
+              <div><dt>Focus</dt><dd>Interpretable AI for drug repurposing in ageing</dd></div>
+            </dl>
+            <p class="pass__foot mono"><span>Birmingham · UK</span><span class="pass__dot"></span></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SKILLS ============ -->
+    <section class="section" id="skills">
       <div class="wrap">
         <div class="head">
-          <p class="kicker mono">What I bring</p>
-          <h2 class="h2">Four capabilities, one pipeline from data to drug candidates.</h2>
+          <p class="kicker mono">Skills</p>
+          <h2 class="h2">A toolkit you can <em>walk through.</em></h2>
+          <p class="lead">Every tool I use, drawn as a 3D network and grouped by area. Drag to turn it, hover a node to name
+            it, and pick an area to fly in.</p>
         </div>
+
+        <div class="space">
+          <div class="space__chips" id="skillChips" role="tablist" aria-label="Skill areas"></div>
+          <div class="space__body">
+            <div class="space__view" id="spaceView">
+              <canvas id="space" aria-label="3D network of skills grouped by area"></canvas>
+              <div class="slabels" id="spaceLabels" aria-hidden="true"></div>
+              <div class="tip" id="spaceTip"></div>
+              <p class="space__hint mono">Drag to orbit · click a node to focus</p>
+            </div>
+            <aside class="space__panel" id="skillPanel" aria-live="polite"></aside>
+          </div>
+        </div>
+
         <div class="caps">
-          <article class="cap rv">
+          <article class="cap tilt rv" data-tilt="5">
             <span class="cap__no mono">01</span>
             <h3>Multi-omics integration</h3>
             <p>Genomic, transcriptomic, epigenetic, proteomic, metabolomic and single-cell data, combined into one coherent analysis.</p>
-            <p class="cap__proof mono">WES · bulk &amp; single-cell RNA-seq · proteomics · metabolomics</p>
+            <p class="cap__proof mono">WES · bulk &amp; single-cell RNA-seq · proteomics</p>
           </article>
-          <article class="cap rv">
+          <article class="cap tilt rv" data-tilt="5">
             <span class="cap__no mono">02</span>
             <h3>Interpretable machine learning</h3>
             <p>Graph neural networks, causal ML and network models that explain why a prediction was made, not just what it is.</p>
-            <p class="cap__proof mono">GNNs · causal inference · TensorFlow · scikit-learn</p>
+            <p class="cap__proof mono">GNNs · causal inference · TensorFlow</p>
           </article>
-          <article class="cap rv">
+          <article class="cap tilt rv" data-tilt="5">
             <span class="cap__no mono">03</span>
             <h3>Clinical translation</h3>
             <p>Nearly four years turning tumour genomics into clinically relevant findings alongside neurosurgical teams at Yale.</p>
-            <p class="cap__proof mono">6 peer-reviewed papers · Nature Communications</p>
+            <p class="cap__proof mono">6 papers · Nature Communications</p>
           </article>
-          <article class="cap rv">
+          <article class="cap tilt rv" data-tilt="5">
             <span class="cap__no mono">04</span>
             <h3>Reproducible engineering</h3>
             <p>Analyses built as reproducible pipelines in Nextflow and Snakemake, containerised with Docker and Singularity.</p>
@@ -159,120 +250,63 @@
       </div>
     </section>
 
-    <!-- ============ TRACK RECORD ============ -->
-    <section class="section section--tight">
+    <!-- ============ PUBLICATIONS ============ -->
+    <section class="section" id="publications">
       <div class="wrap">
-        <div class="numbers" id="numbers">
-          <div class="num rv"><span class="num__v" data-n="6">0</span><span class="num__l">peer-reviewed papers</span></div>
-          <div class="num rv"><span class="num__v" data-n="2">0</span><span class="num__l">as first author</span></div>
-          <div class="num rv"><span class="num__v" data-n="10" data-s="+">0</span><span class="num__l">years of research</span></div>
-          <div class="num rv"><span class="num__v" data-n="4">0</span><span class="num__l">countries</span></div>
-          <div class="num rv"><span class="num__v" data-n="3">0</span><span class="num__l">students mentored</span></div>
+        <div class="head">
+          <p class="kicker mono">Publications</p>
+          <h2 class="h2">Research that made it <em>to print.</em></h2>
+          <p class="lead">Six peer-reviewed papers so far, two as first author, plus one under review. Three I'm proud of:</p>
         </div>
-        <div class="logos rv">
-          <p class="kicker mono">Trained and worked at</p>
-          <ul>
-            <li>University of Birmingham</li><li>Yale School of Medicine</li><li>SciLifeLab</li><li>Karolinska Institutet</li>
-            <li>KTH Royal Institute of Technology</li><li>Stockholm University</li><li>Koç University</li><li>Istanbul Bilgi University</li>
-          </ul>
-        </div>
-      </div>
-    </section>
+        <div class="feats" id="feats"></div>
 
-    <!-- ============ SELECTED WORK ============ -->
-    <section class="section" id="work">
-      <div class="wrap">
-        <div class="head head--row">
-          <div>
-            <p class="kicker mono">Selected work</p>
-            <h2 class="h2">Papers I'm proud of.</h2>
+        <div class="pubs">
+          <div class="pubs__bar">
+            <div class="tabs" id="pubTabs" role="tablist" aria-label="Publication type"></div>
+            <a class="link" href="research.html">Explore the interactive figures <span aria-hidden="true">→</span></a>
           </div>
-          <a class="btn btn--line btn--sm" href="research.html#publications">All publications <span aria-hidden="true">→</span></a>
-        </div>
-        <div class="works" id="works"></div>
-      </div>
-    </section>
-
-    <!-- ============ SCIENCE TEASER → research page ============ -->
-    <section class="section section--tight" id="science">
-      <div class="wrap">
-        <div class="head head--row">
-          <div>
-            <p class="kicker mono">Under the hood</p>
-            <h2 class="h2">See the science, not just the summary.</h2>
-          </div>
-          <a class="btn btn--dark btn--sm" href="research.html">Open the research page <span aria-hidden="true">→</span></a>
-        </div>
-        <div class="teasers">
-          <a class="teaser rv" href="research.html#embedding">
-            <svg class="teaser__art" viewBox="0 0 240 140" aria-hidden="true">
-              <g fill="#4DBBD5"><circle cx="58" cy="40" r="4"/><circle cx="70" cy="32" r="4"/><circle cx="66" cy="50" r="4"/><circle cx="80" cy="44" r="4"/><circle cx="52" cy="56" r="4"/><circle cx="76" cy="58" r="4"/></g>
-              <g fill="#3C5488"><circle cx="46" cy="96" r="4"/><circle cx="58" cy="104" r="4"/><circle cx="40" cy="110" r="4"/><rect x="60" y="88" width="8" height="8"/></g>
-              <g fill="#00A087"><circle cx="170" cy="36" r="4"/><circle cx="184" cy="44" r="4"/><circle cx="160" cy="48" r="4"/><circle cx="178" cy="28" r="4"/></g>
-              <g fill="#E64B35"><circle cx="120" cy="72" r="9" fill="#fff" stroke="#E64B35" stroke-width="2.5"/><circle cx="120" cy="72" r="3.2"/><circle cx="136" cy="60" r="4" fill="#fff" stroke="#E64B35" stroke-width="1.6"/><rect x="104" y="80" width="8" height="8"/></g>
-              <g fill="#8491B4"><circle cx="196" cy="92" r="4"/><circle cx="208" cy="102" r="4"/><circle cx="190" cy="108" r="4"/></g>
-              <g fill="#F39B7F"><circle cx="112" cy="116" r="4"/><circle cx="126" cy="124" r="4"/></g>
-            </svg>
-            <span class="teaser__no mono">01</span>
-            <h3>Career embedding</h3>
-            <p>Tools, papers and roles as a single-cell-style UMAP that converges as you watch.</p>
-          </a>
-          <a class="teaser rv" href="research.html#career-locus">
-            <svg class="teaser__art" viewBox="0 0 240 140" aria-hidden="true">
-              <rect x="14" y="16" width="212" height="8" rx="4" fill="none" stroke="#8b8f98"/>
-              <rect x="120" y="13" width="70" height="14" fill="none" stroke="#d62839" stroke-width="1.6"/>
-              <line x1="20" y1="54" x2="120" y2="54" stroke="#8b8f98"/><rect x="24" y="48" width="22" height="12" fill="#0e0f12"/><rect x="52" y="48" width="30" height="12" fill="#0e0f12"/><rect x="88" y="48" width="28" height="12" fill="#0e0f12"/>
-              <line x1="140" y1="74" x2="220" y2="74" stroke="#8b8f98"/><rect x="146" y="68" width="18" height="12" fill="#d62839"/><rect x="170" y="68" width="46" height="12" fill="#d62839"/>
-              <line x1="14" y1="126" x2="226" y2="126" stroke="#cfcfca"/>
-              <g stroke="#8b8f98"><line x1="60" y1="126" x2="60" y2="110"/><line x1="110" y1="126" x2="110" y2="102"/><line x1="150" y1="126" x2="150" y2="96"/><line x1="170" y1="126" x2="170" y2="96"/><line x1="196" y1="126" x2="196" y2="104"/></g>
-              <circle cx="60" cy="110" r="5" fill="#00A087"/><circle cx="110" cy="102" r="5" fill="#3C5488"/><circle cx="150" cy="96" r="7" fill="#E64B35"/><circle cx="170" cy="96" r="5" fill="#E64B35"/><circle cx="196" cy="104" r="5" fill="#3C5488"/>
-            </svg>
-            <span class="teaser__no mono">02</span>
-            <h3>Career locus</h3>
-            <p>A genome-browser view of ten years, with papers as a mutation lollipop plot. Drag to zoom.</p>
-          </a>
-          <a class="teaser rv" href="research.html#competencies">
-            <svg class="teaser__art" viewBox="0 0 240 140" aria-hidden="true">
-              <path d="M10 22 H22 V40 H34 M22 31 H34 M10 22 V76 H28 V58 H34 M28 76 V94 H34 M10 76 V112 H34 M22 112 V130 H34 M22 112" fill="none" stroke="#8b8f98"/>
-              <rect x="40" y="16" width="34" height="16" fill="#d62839"/><rect x="76" y="16" width="34" height="16" fill="#f0f0ee"/><rect x="112" y="16" width="34" height="16" fill="#f3c9ce"/><rect x="148" y="16" width="34" height="16" fill="#f0f0ee"/><rect x="184" y="16" width="34" height="16" fill="#f3c9ce"/>
-              <rect x="40" y="34" width="34" height="16" fill="#d62839"/><rect x="76" y="34" width="34" height="16" fill="#f0f0ee"/><rect x="112" y="34" width="34" height="16" fill="#f0f0ee"/><rect x="148" y="34" width="34" height="16" fill="#f0f0ee"/><rect x="184" y="34" width="34" height="16" fill="#f0f0ee"/>
-              <rect x="40" y="52" width="34" height="16" fill="#f0f0ee"/><rect x="76" y="52" width="34" height="16" fill="#d62839"/><rect x="112" y="52" width="34" height="16" fill="#f3c9ce"/><rect x="148" y="52" width="34" height="16" fill="#f3c9ce"/><rect x="184" y="52" width="34" height="16" fill="#d62839"/>
-              <rect x="40" y="70" width="34" height="16" fill="#d62839"/><rect x="76" y="70" width="34" height="16" fill="#e48a95"/><rect x="112" y="70" width="34" height="16" fill="#e48a95"/><rect x="148" y="70" width="34" height="16" fill="#d62839"/><rect x="184" y="70" width="34" height="16" fill="#d62839"/>
-              <rect x="40" y="88" width="34" height="16" fill="#f0f0ee"/><rect x="76" y="88" width="34" height="16" fill="#f0f0ee"/><rect x="112" y="88" width="34" height="16" fill="#f0f0ee"/><rect x="148" y="88" width="34" height="16" fill="#d62839"/><rect x="184" y="88" width="34" height="16" fill="#f3c9ce"/>
-              <rect x="40" y="106" width="34" height="16" fill="#f0f0ee"/><rect x="76" y="106" width="34" height="16" fill="#f0f0ee"/><rect x="112" y="106" width="34" height="16" fill="#e48a95"/><rect x="148" y="106" width="34" height="16" fill="#d62839"/><rect x="184" y="106" width="34" height="16" fill="#d62839"/>
-              <rect x="40" y="124" width="34" height="12" fill="#f0f0ee"/><rect x="76" y="124" width="34" height="12" fill="#f0f0ee"/><rect x="112" y="124" width="34" height="12" fill="#d62839"/><rect x="148" y="124" width="34" height="12" fill="#f0f0ee"/><rect x="184" y="124" width="34" height="12" fill="#d62839"/>
-            </svg>
-            <span class="teaser__no mono">03</span>
-            <h3>Which skills, where</h3>
-            <p>A clustered heatmap of sixteen competencies across five research groups, with a live dendrogram.</p>
-          </a>
+          <ol class="plist" id="pubList"></ol>
         </div>
       </div>
     </section>
 
-    <!-- ============ APPROACH (dark) ============ -->
-    <section class="section dark" id="approach">
+    <!-- ============ EXPERIENCE ============ -->
+    <section class="section" id="experience">
       <div class="wrap">
-        <p class="kicker mono">The approach</p>
-        <p class="statement">No approved drug targets ageing itself. Some existing drugs may already slow it.
-          <span class="statement__em">Interpretable AI can tell us which ones to test first, and why.</span></p>
-        <ol class="steps">
-          <li class="step rv">
-            <span class="step__no mono">01</span>
-            <h3>Signatures</h3>
-            <p>Integrate genomic, transcriptomic, epigenetic and proteomic data to find the molecular signatures that drive ageing.</p>
-          </li>
-          <li class="step rv">
-            <span class="step__no mono">02</span>
-            <h3>Networks</h3>
-            <p>Map drug–gene–pathway interactions onto those signatures, building a network of where each compound acts.</p>
-          </li>
-          <li class="step rv">
-            <span class="step__no mono">03</span>
-            <h3>Candidates</h3>
-            <p>Rank existing drugs with graph neural networks and causal ML, with the mechanism attached to every prediction.</p>
-          </li>
-        </ol>
+        <div class="head">
+          <p class="kicker mono">Experience &amp; education</p>
+          <h2 class="h2">Ten years across <em>five research groups.</em></h2>
+        </div>
+        <div class="xp">
+          <div class="xp__list" id="xpList"></div>
+          <aside class="xp__side">
+            <h3 class="side-h mono">Education</h3>
+            <div class="edu" id="eduList"></div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ BEYOND ============ -->
+    <section class="section section--tight" id="beyond">
+      <div class="wrap">
+        <div class="grid3">
+          <article class="tile rv">
+            <h3 class="side-h mono">Awards &amp; scholarships</h3>
+            <ul class="rows" id="awardList"></ul>
+          </article>
+          <article class="tile rv">
+            <h3 class="side-h mono">Languages</h3>
+            <ul class="langs" id="langList"></ul>
+            <h3 class="side-h mono side-h--gap">Mentoring</h3>
+            <p class="tile__p">Three summer research students at Yale (2023–2024): two Yale undergraduates and one
+              high-school researcher.</p>
+          </article>
+          <article class="tile rv">
+            <h3 class="side-h mono">Further training</h3>
+            <ul class="rows" id="trainList"></ul>
+          </article>
+        </div>
       </div>
     </section>
 
@@ -280,12 +314,12 @@
     <section class="section contact" id="contact">
       <div class="wrap">
         <p class="kicker mono">Contact</p>
-        <h2 class="contact__title">Let's build what comes next.</h2>
-        <p class="contact__lead">I'm keen to talk with researchers, clinicians and teams working on AI-driven drug discovery and
+        <h2 class="contact__title">Let's build what <em>comes next.</em></h2>
+        <p class="lead">I'm keen to talk with researchers, clinicians and teams working on AI-driven drug discovery and
           longevity science. The quickest way to reach me is LinkedIn.</p>
-        <div class="contact__cta">
+        <div class="hero__cta">
           <a class="btn btn--accent" href="https://www.linkedin.com/in/hasanalanya/" target="_blank" rel="noopener">Message me on LinkedIn <span aria-hidden="true">↗</span></a>
-          <a class="btn btn--line" href="https://github.com/hasanalanya" target="_blank" rel="noopener">GitHub <span aria-hidden="true">↗</span></a>
+          <a class="btn btn--ghost" href="https://github.com/hasanalanya" target="_blank" rel="noopener">GitHub <span aria-hidden="true">↗</span></a>
         </div>
       </div>
     </section>
@@ -293,14 +327,11 @@
 
   <footer class="foot wrap">
     <span>© <span id="yr"></span> Hasan Alanya · Birmingham, UK</span>
-    <span class="mono foot__v"><a href="research.html">Research</a> · <a href="https://www.linkedin.com/in/hasanalanya/" target="_blank" rel="noopener">LinkedIn</a></span>
+    <span class="mono"><a href="research.html">Figures</a> · <a href="https://www.linkedin.com/in/hasanalanya/" target="_blank" rel="noopener">LinkedIn</a> · <a href="https://github.com/hasanalanya" target="_blank" rel="noopener">GitHub</a></span>
   </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/d3-array@3.2.4/dist/d3-array.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/d3-geo@3.1.1/dist/d3-geo.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/topojson-client@3.1.0/dist/topojson-client.min.js"></script>
   <script src="js/data.js"></script>
-  <script src="js/globe.js"></script>
-  <script src="js/app.js"></script>
+  <script type="module" src="js/app.js"></script>
 </body>
 </html>

@@ -1,0 +1,41 @@
+/* =========================================================
+   Dark theme for the figures page.
+   Loads after research.css and only swaps the palette.
+   The figure code reads these variables, so they stay literal hex.
+   ========================================================= */
+:root {
+  --bg: #07080b;
+  --surface: #0f1218;
+  --ink: #f3f1ec;
+  --ink-2: #b3b6bf;
+  --ink-3: #7a7f8b;
+  --line: #1e222b;
+  --line-2: #343946;
+  --accent: #ff4d3d;
+  --paper: #07080b;
+  --fig: #0f1218;
+  --rule: #232731;
+  --rule-2: #3a3f4c;
+  --serif: "Instrument Serif", "Iowan Old Style", Georgia, serif;
+}
+html { background: var(--bg); }
+::selection { background: var(--accent); color: #140402; }
+.page-research .nav { background: rgba(7, 8, 11, 0.74); border-color: var(--line); }
+.nav__links a.is-active { color: var(--ink); }
+.nav__cta { background: transparent; color: var(--ink); border: 1px solid var(--line-2); }
+.nav__cta:hover { background: rgba(255, 255, 255, 0.08); }
+.rhero__title em, .contact__title em {
+  font-family: var(--serif); font-style: italic; font-weight: 400; letter-spacing: -0.02em; padding-right: 0.08em;
+  background: linear-gradient(100deg, #ff5a45 0%, #ff9a6b 55%, #ffd0a8 100%); -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.kicker { color: var(--accent); }
+.rindex a.is-active span { color: #b0220f; }
+.fig__frame { box-shadow: 0 40px 80px -50px #000; }
+.detail { background: #0b0d12; }
+#browser .brush { fill: rgba(255, 77, 61, 0.14); }
+.tip { background: #f3f1ec; color: #07080b; }
+.btn--accent { color: #160402; font-weight: 600; box-shadow: 0 10px 40px -12px rgba(255, 77, 61, 0.7); }
+.btn--line { border-color: var(--line-2); }
+.contact { position: relative; overflow: hidden; }
+.contact::before { content: ""; position: absolute; left: 50%; bottom: -55%; width: 120%; aspect-ratio: 2 / 1; translate: -50% 0; background: radial-gradient(closest-side, rgba(255, 77, 61, 0.2), transparent); pointer-events: none; }
+.contact .wrap { position: relative; }
